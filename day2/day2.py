@@ -17,13 +17,13 @@ from z3 import Solver, Int, And
 def runPart1(filename):    
     return sum(int(re.findall(r'Game (\d+):', line)[0])
                for line in open(filename).read().splitlines()
-               if all([int(match)<=limit 
+               if all([int(match) <= limit 
                        for color, limit in[("red", 12), ("green", 13), ("blue", 14)]
-                       for match in re.findall(rf'(\d+) {color}',line)]))
+                       for match in re.findall(rf'(\d+) {color}', line)]))
 
 def runPart2(filename):    
     return sum(prod(max(int(match) for match in re.findall(rf'(\d+) {color}', line))
-                    for color in["red", "green", "blue"]) 
+                    for color in ["red", "green", "blue"]) 
                 for line in open(filename).read().splitlines())
         
 
