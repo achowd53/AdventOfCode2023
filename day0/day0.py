@@ -19,6 +19,7 @@ def runPart1(filename):
     #lines = open(filename).read().split('\n\n')
     lines = open(filename).read().splitlines()
     #lines = list(map(int,lines))
+    #grid = {(x,y):lines[y][x] for y in range(len(lines)) for x in range(len(lines[0]))}
         
     ans = None
     for line in lines:
@@ -31,6 +32,7 @@ def runPart2(filename):
     #lines = open(filename).read().split('\n\n')
     lines = open(filename).read().splitlines()
     #lines = list(map(int,lines))
+    #grid = {(x,y):lines[y][x] for y in range(len(lines)) for x in range(len(lines[0]))}
         
     ans = None
     for line in lines:
