@@ -2,7 +2,8 @@ import scipy.ndimage as sp, numpy as np #np arrays are just nice in general and 
 import re #re.split(), re.match, re.findall, Regex Guide at https://www.debuggex.com/cheatsheet/regex/python
 import collections #defaultdicts, maybe counters
 import functools #use @functools.lru_cache(None) above a function to keep track of all inputs and speed it up, reduce
-from math import log, prod
+from math import log, prod, lcm
+from sympy.ntheory.modular import crt
 from string import ascii_uppercase, ascii_lowercase, ascii_letters #ascii_uppercase, ascii_lowercase, etc..
 import itertools #itertools.product(range(a),range(b),[1,2,3]) allows for nested for loops in one line essentially
 from more_itertools import chunked, windowed #chunked, windowed
