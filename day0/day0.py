@@ -1,11 +1,11 @@
 import scipy.ndimage as sp, numpy as np #np arrays are just nice in general and scipy.ndimage correlate and convolve, rot90 default axis=1 rotates left axis=0 would be right
 import re #re.split(), re.match, re.findall, Regex Guide at https://www.debuggex.com/cheatsheet/regex/python
-import collections #defaultdicts, maybe counters
-import functools #use @functools.lru_cache(None) above a function to keep track of all inputs and speed it up, reduce
+from collections import defaultdict, Counter
+from functools import lru_cache, reduce
 from math import log, prod, lcm
 from sympy.ntheory.modular import crt
 from string import ascii_uppercase, ascii_lowercase, ascii_letters #ascii_uppercase, ascii_lowercase, etc..
-import itertools #itertools.product(range(a),range(b),[1,2,3]) allows for nested for loops in one line essentially
+from itertools import product, chain, pairwise #itertools.product(range(a),range(b),[1,2,3]) allows for nested for loops in one line essentially
 from more_itertools import chunked, windowed #chunked, windowed
 from scanf import scanf
 import networkx #Networkx for graph problems like connected components
