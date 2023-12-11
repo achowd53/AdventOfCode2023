@@ -5,14 +5,14 @@ from functools import lru_cache, reduce
 from math import log, prod, lcm
 from sympy.ntheory.modular import crt
 from string import ascii_uppercase, ascii_lowercase, ascii_letters #ascii_uppercase, ascii_lowercase, etc..
-from itertools import product, chain, pairwise #itertools.product(range(a),range(b),[1,2,3]) allows for nested for loops in one line essentially
+from itertools import product, chain, pairwise, combinations, permutations #itertools.product(range(a),range(b),[1,2,3]) allows for nested for loops in one line essentially
 from more_itertools import chunked, windowed #chunked, windowed
 from scanf import scanf
-import networkx #Networkx for graph problems like connected components
+import networkx as nx #Networkx for graph problems like connected components
 from copy import deepcopy #deepcopy() let's use copy a list without reference areas
 import portion # Interval stuff
 from z3 import Solver, Int, And
-from shapely.geometry import Polygon, Point # Geometry is FUN
+from shapely.geometry import Polygon, Point # Geometry is FUN, Double Resolution + Floodfill baby
 #Sets are {}, A|B finds union of sets, A&B finds intersection, A-B finds difference, A^B is (A|B)-(A&B)
 #Python has complex numbers of the form x+yj (1+1j) or complex(x,y) (complex(1,1))
 

@@ -42,6 +42,7 @@ def runPart2(filename):
     max_loop = sorted(list(nx.simple_cycles(G)), key=lambda x: len(x))[-1]
     poly = Polygon(max_loop)
     return sum(Point(x,y).within(poly) for x,y in grid if (x,y) not in max_loop)
+    # Could have also used Shoelace and Pick's Theorem
 
 
 print("Running example.txt...")
