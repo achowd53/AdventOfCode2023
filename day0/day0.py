@@ -1,6 +1,6 @@
 import scipy.ndimage as sp, numpy as np #np arrays are just nice in general and scipy.ndimage correlate and convolve, rot90 default axis=1 rotates left axis=0 would be right
 import re #re.split(), re.match, re.findall, Regex Guide at https://www.debuggex.com/cheatsheet/regex/python
-from collections import defaultdict, Counter
+from collections import defaultdict, Counter, deque
 from functools import lru_cache, reduce
 from math import log, prod, lcm
 from sympy.ntheory.modular import crt
