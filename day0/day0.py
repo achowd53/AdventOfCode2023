@@ -13,6 +13,7 @@ from copy import deepcopy #deepcopy() let's use copy a list without reference ar
 import portion # Interval stuff
 from z3 import Solver, Int, And
 from shapely.geometry import Polygon, Point # Geometry is FUN, Double Resolution + Floodfill baby
+import heapq 
 #Sets are {}, A|B finds union of sets, A&B finds intersection, A-B finds difference, A^B is (A|B)-(A&B)
 #Python has complex numbers of the form x+yj (1+1j) or complex(x,y) (complex(1,1))
 # DYNAMIC PROGRAMMING WEEEEEEEEEEEEEEE
