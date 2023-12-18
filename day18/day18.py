@@ -12,45 +12,35 @@ import networkx as nx #Networkx for graph problems like connected components
 from copy import deepcopy #deepcopy() let's use copy a list without reference areas
 import portion # Interval stuff
 from z3 import Solver, Int, And
-from shapely.geometry import Polygon, Point # Geometry is FUN, Double Resolution + Floodfill baby, Shoelace+Pick's for point counting
+from shapely.geometry import Polygon, Point # Geometry is FUN, Double Resolution + Floodfill baby
 import heapq 
 #Sets are {}, A|B finds union of sets, A&B finds intersection, A-B finds difference, A^B is (A|B)-(A&B)
 #Python has complex numbers of the form x+yj (1+1j) or complex(x,y) (complex(1,1))
 # DYNAMIC PROGRAMMING WEEEEEEEEEEEEEEE
 
 def runPart1(filename):    
-    #lines = open(filename)
-    #lines = open(filename).read().split('\n\n')
-    lines = open(filename).read().splitlines()
-    #lines = list(map(int,lines))
-    #grid = {(x,y):lines[y][x] for y in range(len(lines)) for x in range(len(lines[0]))}
-    #lines = np.array([*map(list, open(filename).read().splitlines())])
-        
-    ans = None
-    for line in lines:
-        #a,b = line.split()
-        pass
-    return ans
+    coords = [(0,0)]
+    for line in open(filename).read().splitlines():
+        dir,dist,_ = line.split()
+        dirs = {"R":(1,0),"L":(-1,0),"U":(0,1),"D":(0,-1)}
+        coords.append((coords[-1][0]+int(dist)*dirs[dir][0], coords[-1][1]+int(dist)*dirs[dir][1]))
+    bounds = sum(abs(x2-x1)+abs(y2-y1) for (x1,y1),(x2,y2) in zip(coords[:-1],coords[1:]))
+    return int(Polygon(coords).area-bounds/2+1 + bounds)
 
 def runPart2(filename):    
-    #lines = open(filename)
-    #lines = open(filename).read().split('\n\n')
-    lines = open(filename).read().splitlines()
-    #lines = list(map(int,lines))
-    #grid = {(x,y):lines[y][x] for y in range(len(lines)) for x in range(len(lines[0]))}
-    #lines = np.array([*map(list, open(filename).read().splitlines())])
-        
-    ans = None
-    for line in lines:
-        #a,b = line.split()
-        pass
-    return ans
-        
+    coords = [(0,0)]
+    for line in open(filename).read().splitlines():
+        _,_,paint = line.split()
+        dist = int(paint[2:7], 16)
+        dir = {"0":"R","1":"D","2":"L","3":"U"}[paint[7]]
+        dirs = {"R":(1,0),"L":(-1,0),"U":(0,1),"D":(0,-1)}
+        coords.append((coords[-1][0]+dist*dirs[dir][0], coords[-1][1]+dist*dirs[dir][1]))
+    bounds = sum(abs(x2-x1)+abs(y2-y1) for (x1,y1),(x2,y2) in zip(coords[:-1],coords[1:]))
+    return int(Polygon(coords).area-bounds/2+1 + bounds)
 
 print("Running example.txt...")
 print("Part 1:", runPart1("example.txt"))
 print("Part 2:", runPart2("example.txt"))
-#print("Part 2:", runPart2("example2.txt"))
 print()
 print("Running input.txt...")
 print("Part 1:", runPart1("input.txt"))
