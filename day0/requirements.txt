@@ -1,0 +1,9 @@
+scipy==1.9.3
+numpy==1.23.5
+sympy==1.11.1
+more_itertools==9.0.0
+networkx==2.8.8
+geonetworkx==0.5.3
+portion==2.3.0
+z3-solver==4.11.2.0
+shapely==2.0.0
