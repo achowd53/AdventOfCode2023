@@ -151,8 +151,10 @@ from sympy.ntheory.modular import crt
 def polynomialEvaluation(points, deg, x): # Solve n-degree polynomial from n+1 points and calc for X
     coef = np.polyfit(*zip(*points), deg)
     return round(np.polyval(coef, x))
-from shapely.geometry import Polygon, Point, LineString # Geometry is FUN, Double Resolution + Floodfill baby, Shoelace+Pick's for point counting
+from shapely.geometry import Polygon, Point, LineString # Geometry is FUN, Double Resolution + Floodfill baby
 def latticePolygonArea(coords): # Shoelace + Pick's if closed coords set (a,b,c,a)
+    # Generalized Pick's: https://math.stackexchange.com/questions/2773118/general-form-of-picks-theorem
+    ## Self-Intersections for Generalized Picks: https://gis.stackexchange.com/questions/423351/identifying-self-intersections-in-linestring-using-shapely
     bounds = sum(abs(x2-x1)+abs(y2-y1) for (x1,y1),(x2,y2) in pairwise(coords))
     return int(Polygon(coords).area + bounds/2 + 1)
 from z3 import Solver, Int, And #Solver.add, Solver.check, Solver.model, model.evaluate
