@@ -1,16 +1,12 @@
 from utils import *
 
 def runPart1(filename):    
-    lines = matchLines(filename, None)
-    adj_list = {line.split(':')[0]:line.split(': ')[1].split() for line in lines}
-    G = nx.Graph()
-    for pos in adj_list:
-        for adj in adj_list[pos]:
-            G.add_edge(pos,adj,capacity=1.0)
-    for x,y in combinations(adj_list.keys(), 2):
-        cuts, partition = nx.minimum_cut(G,x,y)
-        if cuts == 3:
-            return prod(map(len,partition))
+    lines = matchLines(filename, r'\w+')
+    adj_list = {line[0]:line[1:] for line in lines}
+    G = createNetworkXGraphFromAdjacency(adj_list)
+    cuts = nx.minimum_edge_cut(G)
+    G.remove_edges_from(cuts) 
+    return prod(map(len,nx.connected_components(G)))
 
 
 print("Running example.txt...")

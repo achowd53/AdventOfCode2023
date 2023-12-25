@@ -46,7 +46,8 @@ def readComplexGrid(numpyGrid, walls="#"):
     return grid
 
 # Graphing w/ NetworkX
-import networkx as nx #Networkx for graph problems like connected components, simple paths, path_weight, shortest_path, simple_cycles, min_cut
+import matplotlib.pyplot as plt #Can use nx.draw(G, with_labels = True) to draw graph with pyplot
+import networkx as nx #Networkx for graph theory like connected components, simple paths, path_weight, shortest_path, simple_cycles, min_cut or minimum_edge_cut, add_edges, remove_edges
 import geonetworkx as gnx #Use for coord compression graphs (two_degree_node_merge, get_edge_data(n1,n2)["weight"] = len(new_edges[(n1,n2)])))
 def fourNeighbors(pos):
     return [pos+dir for dir in [1,-1,1j,-1j]]
